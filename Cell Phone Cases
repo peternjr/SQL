@@ -41,13 +41,12 @@ INSERT INTO products (id, name, phone_type, color, size, price) VALUES
 (29, 'Leather Case', 'Google', 'Black', 'XL', 29.99),
 (30, 'Silicone Case', 'Samsung', 'Pink', 'Standard', 14.99);
 
---sort the phone cases by price in ascending order
+--Sort the phone cases by price in ascending order
 SELECT * FROM products
 ORDER BY price ASC;
 
---Sort by the number of different types of phones and the number of cases for each of those phones
-SELECT phone_type, COUNT(DISTINCT name) AS num_cases, COUNT(DISTINCT phone_type) AS num_phone_types
-FROM products
-GROUP BY phone_type
-ORDER BY num_phone_types DESC, num_cases DESC;
+--Sort by all of the iPhone cases that are less than $20
+SELECT * FROM products
+WHERE phone_type = 'iPhone' AND price < 20;
+
 
